@@ -1,0 +1,25 @@
+register ---> name , email, password , contact , isverify --- false  default false
+                                                 isVerfiy --- true
+
+
+email --> mail share karna kisliye hme pata lage ki user verify hai 
+
+nodemailer  --  ek user se dusre ke pass email ko share karta hai 
+
+email       --  lalit@gmail.com --->  
+
+
+
+ from -- lalitdoriya7gmail.com  -- ye jo email id hai ye hme menually dena hai   
+  
+ to   -- doriyalalit8@gmail.com   -- ye hme user dega form se 
+
+register --- mail share karwana -- user se account ko verify karwna 
+
+without verify -- response error ko send kar dena hai 
+
+mail -doriyalalit8@gmail.com  --> mail --> verify ---> action = http//localhost:3000/verification
+
+varification ---> verifiedUser -- updateOne --{$set {isVerfiy:true}}
+ where email 
+user hai wo kya verify ho chuka hai 
