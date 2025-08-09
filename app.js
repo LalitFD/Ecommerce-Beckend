@@ -19,7 +19,15 @@ mongoose.connect(process.env.URL).then((result) => {
     app.use(express.static("public"))
     app.use(bodyParser.json())
     app.use(express.json());
-    app.use(cors());
+
+    app.use(cors({
+        // origin: "http://localhost:3001",
+        origin: "https://ecommerce-frontend-odaa.onrender.com",
+        credentials: true,
+    }));
+
+
+
     app.use(express.urlencoded({ extended: true }));
 
 

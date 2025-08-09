@@ -71,8 +71,14 @@ export const login = async (request, response, next) => {
         if (!status) return response.status(400).json({ error: "unathorized user | wrong Password " })
         else {
             use.password = undefined;  // { "password":undefined }
-            response.cookie("token", generateToken(use._id, use.email))
-            return response.status(200).json({ message: "Login success", use })
+            const token = generateToken(use._id, use.email);
+
+            response.cookie("token", token, {
+                httpOnly: true,
+                secure: true,
+                sameSite: "None"
+            }); return response.status(200).json({ message: "Login success", token, use })
+
         }
     } catch (err) {
         console.log(err)
